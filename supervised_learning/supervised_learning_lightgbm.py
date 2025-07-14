@@ -11,19 +11,19 @@ embeddings_dir = "../embeddings/embeddings_output"
 results_dir = "../supervised_learning_results/lightgbm_results"
 os.makedirs(results_dir, exist_ok=True)
 
-print("📄 Loading labeled dataset from:", data_path)
+print(" Loading labeled dataset from:", data_path)
 df = pd.read_csv(data_path)
 df = df[df['MASH_LABEL'].isin([0, 1])]
 
 # Loop through embeddings
 for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
-    print(f"\n🔍 Processing model: {model_name}")
+    print(f"\n Processing model: {model_name}")
     embed_path = os.path.join(embeddings_dir, f"final_embeddings_{model_name}.npy")
     embeddings = np.load(embed_path)
 
     # Align length
     if len(embeddings) != len(df):
-        print(f"⚠️ Mismatch in length. Truncating to {min(len(embeddings), len(df))} rows.")
+        print(f" Mismatch in length. Truncating to {min(len(embeddings), len(df))} rows.")
         df = df.iloc[:len(embeddings)]
         embeddings = embeddings[:len(df)]
 
@@ -33,7 +33,7 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
     # Split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    print(f"🚀 Training LightGBM model for {model_name}...")
+    print(f" Training LightGBM model for {model_name}...")
     train_data = lgb.Dataset(X_train, label=y_train)
     test_data = lgb.Dataset(X_test, label=y_test)
 
@@ -70,7 +70,7 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
     with open(result_file, "w") as f:
         f.write(result_text)
 
-    print(f"✅ Results saved to: {result_file}")
+    print(f" Results saved to: {result_file}")
 
     class MASHNet(nn.Module):
     def __init__(self):
