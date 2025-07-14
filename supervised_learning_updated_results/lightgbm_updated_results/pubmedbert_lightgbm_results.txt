@@ -1,0 +1,18 @@
+Model: pubmedbert
+Accuracy: 0.2456
+AUC: 0.6424
+Threshold: 0.3
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9944    0.2068    0.3424    222427
+           1     0.0613    0.9778    0.1153     11777
+
+    accuracy                         0.2456    234204
+   macro avg     0.5278    0.5923    0.2289    234204
+weighted avg     0.9474    0.2456    0.3310    234204
+
+Confusion Matrix:
+[[ 45999 176428]
+ [   261  11516]]

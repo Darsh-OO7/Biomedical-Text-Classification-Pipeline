@@ -1,0 +1,18 @@
+Model: clinicalbert
+Accuracy: 0.3120
+AUC: 0.6365
+Threshold: 0.3
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9839    0.2802    0.4362    222427
+           1     0.0630    0.9135    0.1178     11777
+
+    accuracy                         0.3120    234204
+   macro avg     0.5234    0.5968    0.2770    234204
+weighted avg     0.9376    0.3120    0.4202    234204
+
+Confusion Matrix:
+[[ 62325 160102]
+ [  1019  10758]]
