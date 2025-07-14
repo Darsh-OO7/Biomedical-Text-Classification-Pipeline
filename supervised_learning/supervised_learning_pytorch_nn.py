@@ -77,7 +77,7 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
         loss.backward()
         optimizer.step()
         if (epoch + 1) % 2 == 0:
-            print(f"📉 Epoch [{epoch + 1}/10], Loss: {loss.item():.4f}")
+            print(f" Epoch [{epoch + 1}/10], Loss: {loss.item():.4f}")
 
     # Evaluation
     model.eval()
