@@ -16,10 +16,10 @@ os.makedirs(results_dir, exist_ok=True)
 
 # Use GPU if available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"🖥️ Using device: {device}")
+print(f"🖥 Using device: {device}")
 
 # Load labeled data
-print("📄 Loading labeled dataset from:", data_path)
+print(" Loading labeled dataset from:", data_path)
 df = pd.read_csv(data_path)
 df = df[df['MASH_LABEL'].isin([0, 1])]
 
@@ -40,13 +40,13 @@ class FeedForwardNN(nn.Module):
         return self.model(x)
 
 for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
-    print(f"\n🔍 Processing model: {model_name}")
+    print(f"\n Processing model: {model_name}")
     embed_path = os.path.join(embeddings_dir, f"final_embeddings_{model_name}.npy")
     embeddings = np.load(embed_path)
 
     if len(embeddings) != len(df):
         min_len = min(len(embeddings), len(df))
-        print(f"⚠️ Mismatch in length. Truncating to {min_len} rows.")
+        print(f" Mismatch in length. Truncating to {min_len} rows.")
         df = df.iloc[:min_len]
         embeddings = embeddings[:min_len]
 
@@ -70,7 +70,7 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
     model = FeedForwardNN(input_dim=X.shape[1]).to(device)
     optimizer = optim.Adam(model.parameters(), lr=1e-4)
 
-    print(f"🚀 Training PyTorch NN model for {model_name}...")
+    print(f" Training PyTorch NN model for {model_name}...")
     model.train()
     for epoch in range(10):
         optimizer.zero_grad()
@@ -79,7 +79,7 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
         loss.backward()
         optimizer.step()
         if (epoch + 1) % 2 == 0:
-            print(f"📉 Epoch [{epoch + 1}/10], Loss: {loss.item():.4f}")
+            print(f" Epoch [{epoch + 1}/10], Loss: {loss.item():.4f}")
 
     # Evaluation
     model.eval()
@@ -111,4 +111,4 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
     with open(result_file, "w") as f:
         f.write(result_text)
 
-    print(f"✅ Results saved to: {result_file}")
+    print(f" Results saved to: {result_file}")
