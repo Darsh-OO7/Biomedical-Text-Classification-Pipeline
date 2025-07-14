@@ -14,13 +14,13 @@ results_dir = "../supervised_learning_results/xgboost_results"
 os.makedirs(results_dir, exist_ok=True)
 
 # Load dataset
-print(f"📄 Loading labeled dataset from: {data_path}")
+print(f" Loading labeled dataset from: {data_path}")
 df = pd.read_csv(data_path, low_memory=False)
 
 # Use correct label column
 label_column = "MASH_LABEL"
 if label_column not in df.columns:
-    raise KeyError(f"❌ Column '{label_column}' not found in dataset.")
+    raise KeyError(f" Column '{label_column}' not found in dataset.")
 
 # Confirm binary classification task
 df = df[df[label_column].isin([0, 1])]
@@ -34,7 +34,7 @@ models = {
 
 # Iterate over all embeddings
 for model_name, embedding_file in models.items():
-    print(f"\n🔍 Processing model: {model_name}")
+    print(f"\n Processing model: {model_name}")
     
     # Load embeddings
     embedding_path = os.path.join(embeddings_dir, embedding_file)
@@ -65,7 +65,7 @@ for model_name, embedding_file in models.items():
     )
 
     # Train model
-    print(f"🚀 Training XGBoost model for {model_name}...")
+    print(f" Training XGBoost model for {model_name}...")
     clf.fit(X_train, y_train)
 
     # Predict and evaluate
