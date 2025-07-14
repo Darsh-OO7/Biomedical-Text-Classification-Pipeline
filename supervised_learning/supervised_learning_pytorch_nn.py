@@ -18,7 +18,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"🖥️ Using device: {device}")
 
 # Load labeled data
-print("📄 Loading labeled dataset from:", data_path)
+print(" Loading labeled dataset from:", data_path)
 df = pd.read_csv(data_path)
 df = df[df['MASH_LABEL'].isin([0, 1])]
 
@@ -47,7 +47,7 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
 
     if len(embeddings) != len(df):
         min_len = min(len(embeddings), len(df))
-        print(f"⚠️ Mismatch in length. Truncating to {min_len} rows.")
+        print(f" Mismatch in length. Truncating to {min_len} rows.")
         df = df.iloc[:min_len]
         embeddings = embeddings[:min_len]
 
@@ -68,7 +68,7 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
     criterion = nn.BCELoss()
     optimizer = optim.Adam(model.parameters(), lr=1e-4)
 
-    print(f"🚀 Training PyTorch NN model for {model_name}...")
+    print(f" Training PyTorch NN model for {model_name}...")
     model.train()
     for epoch in range(10):  # 10 epochs for speed; increase for better performance
         optimizer.zero_grad()
@@ -103,4 +103,4 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
     with open(result_file, "w") as f:
         f.write(result_text)
 
-    print(f"✅ Results saved to: {result_file}")
+    print(f" Results saved to: {result_file}")
