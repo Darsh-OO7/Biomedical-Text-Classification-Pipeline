@@ -13,7 +13,7 @@ results_dir = "../supervised_learning_updated_results/xgboost_updated_results"
 os.makedirs(results_dir, exist_ok=True)
 
 # Load dataset
-print(f"📄 Loading labeled dataset from: {data_path}")
+print(f" Loading labeled dataset from: {data_path}")
 df = pd.read_csv(data_path, low_memory=False)
 df = df[df["MASH_LABEL"].isin([0, 1])]
 
@@ -24,14 +24,14 @@ models = {
 }
 
 for model_name, embedding_file in models.items():
-    print(f"\n🔍 Processing model: {model_name}")
+    print(f"\n Processing model: {model_name}")
 
     embedding_path = os.path.join(embeddings_dir, embedding_file)
     embeddings = np.load(embedding_path)
 
     if len(embeddings) != len(df):
         min_len = min(len(embeddings), len(df))
-        print(f"⚠️ Mismatch in length. Truncating to {min_len} rows.")
+        print(f" Mismatch in length. Truncating to {min_len} rows.")
         X = embeddings[:min_len]
         y = df["MASH_LABEL"].values[:min_len]
     else:
@@ -53,7 +53,7 @@ for model_name, embedding_file in models.items():
         verbosity=1
     )
 
-    print(f"🚀 Training XGBoost model for {model_name}...")
+    print(f" Training XGBoost model for {model_name}...")
     clf.fit(X_train, y_train)
 
     # Predict probabilities and apply threshold tuning
@@ -77,4 +77,4 @@ for model_name, embedding_file in models.items():
         f.write("Confusion Matrix:\n")
         f.write(np.array2string(cm))
 
-    print(f"📁 Results saved to {output_file}")
+    print(f" Results saved to {output_file}")
