@@ -1,0 +1,16 @@
+Model: pubmedbert
+Accuracy: 0.9503
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         0.0     0.9503    1.0000    0.9745    222553
+         1.0     0.0000    0.0000    0.0000     11651
+
+    accuracy                         0.9503    234204
+   macro avg     0.4751    0.5000    0.4872    234204
+weighted avg     0.9030    0.9503    0.9260    234204
+
+Confusion Matrix:
+[[222553      0]
+ [ 11651      0]]
