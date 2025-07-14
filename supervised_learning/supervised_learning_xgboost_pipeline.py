@@ -39,12 +39,12 @@ for model_name, embedding_file in models.items():
     # Load embeddings
     embedding_path = os.path.join(embeddings_dir, embedding_file)
     embeddings = np.load(embedding_path)
-    print(f"✅ Loaded embeddings with shape: {embeddings.shape}")
+    print(f" Loaded embeddings with shape: {embeddings.shape}")
 
     # Align embeddings with the dataset length
     if len(embeddings) != len(df):
         min_len = min(len(embeddings), len(df))
-        print(f"⚠️ Mismatch in length. Truncating to {min_len} rows.")
+        print(f" Mismatch in length. Truncating to {min_len} rows.")
         X = embeddings[:min_len]
         y = df[label_column].values[:min_len]
     else:
@@ -84,4 +84,4 @@ for model_name, embedding_file in models.items():
         f.write("Confusion Matrix:\n")
         f.write(np.array2string(cm))
 
-    print(f"📁 Results saved to {output_file}")
+    print(f"Results saved to {output_file}")
