@@ -22,7 +22,7 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
     embeddings = np.load(embed_path)
 
     if len(embeddings) != len(df):
-        print(f"⚠️ Mismatch in length. Truncating to {min(len(embeddings), len(df))} rows.")
+        print(f" Mismatch in length. Truncating to {min(len(embeddings), len(df))} rows.")
         df = df.iloc[:len(embeddings)]
         embeddings = embeddings[:len(df)]
 
@@ -72,4 +72,4 @@ for model_name in ["biobert", "clinicalbert", "pubmedbert"]:
     with open(result_file, "w") as f:
         f.write(result_text)
 
-    print(f"✅ Results saved to: {result_file}")
+    print(f" Results saved to: {result_file}")
