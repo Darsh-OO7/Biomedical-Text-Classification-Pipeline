@@ -1,0 +1,19 @@
+Model: biobert
+Accuracy: 0.5558
+AUC-ROC: 0.5835
+AUC-PR: 0.0630
+Best Threshold (F1-optimized): 0.5092
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         0.0     0.9605    0.5550    0.7035    222427
+         1.0     0.0634    0.5692    0.1141     11777
+
+    accuracy                         0.5558    234204
+   macro avg     0.5120    0.5621    0.4088    234204
+weighted avg     0.9154    0.5558    0.6739    234204
+
+Confusion Matrix:
+[[123457  98970]
+ [  5074   6703]]

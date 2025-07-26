@@ -1,0 +1,20 @@
+Model: clinicalbert
+Accuracy: 0.5751
+AUC-ROC: 0.6490
+AUC-PR: 0.0764
+Best Threshold (F1-optimized): 0.5325
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9665    0.5724    0.7190    222427
+           1     0.0719    0.6258    0.1290     11777
+
+    accuracy                         0.5751    234204
+   macro avg     0.5192    0.5991    0.4240    234204
+weighted avg     0.9216    0.5751    0.6893    234204
+
+Confusion Matrix:
+[[127318  95109]
+ [  4407   7370]]
+SHAP Summary Plot Saved: ../SL_2nd_U_results/xgboost_2nd_updated_results/clinicalbert_shap_summary.png
