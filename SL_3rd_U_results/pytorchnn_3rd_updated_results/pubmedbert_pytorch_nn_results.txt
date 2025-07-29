@@ -1,0 +1,19 @@
+Model: pubmedbert
+Accuracy: 0.5808
+AUC-ROC: 0.6428
+AUC-PR: 0.6058
+Best Threshold (F1-optimized): 0.4399
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         0.0     0.8764    0.1881    0.3097    222427
+         1.0     0.5452    0.9735    0.6990    222427
+
+    accuracy                         0.5808    444854
+   macro avg     0.7108    0.5808    0.5043    444854
+weighted avg     0.7108    0.5808    0.5043    444854
+
+Confusion Matrix:
+[[ 41833 180594]
+ [  5901 216526]]
