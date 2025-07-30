@@ -1,0 +1,20 @@
+Model: biobert
+Accuracy: 0.7270
+AUC-ROC: 0.6423
+AUC-PR: 0.0756
+Best Threshold (F1-optimized): 0.5707
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9591    0.7442    0.8381    111213
+           1     0.0767    0.4013    0.1288      5889
+
+    accuracy                         0.7270    117102
+   macro avg     0.5179    0.5727    0.4834    117102
+weighted avg     0.9148    0.7270    0.8024    117102
+
+Confusion Matrix:
+[[82765 28448]
+ [ 3526  2363]]
+SHAP Summary Plot Saved: ../SL_4th_U_results/lightgbm_4th_updated_results/biobert_shap_summary.png

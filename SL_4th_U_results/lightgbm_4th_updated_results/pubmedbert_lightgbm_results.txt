@@ -1,0 +1,20 @@
+Model: pubmedbert
+Accuracy: 0.7272
+AUC-ROC: 0.6459
+AUC-PR: 0.0771
+Best Threshold (F1-optimized): 0.5745
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9592    0.7444    0.8382    111213
+           1     0.0769    0.4023    0.1291      5889
+
+    accuracy                         0.7272    117102
+   macro avg     0.5181    0.5733    0.4837    117102
+weighted avg     0.9148    0.7272    0.8026    117102
+
+Confusion Matrix:
+[[82784 28429]
+ [ 3520  2369]]
+SHAP Summary Plot Saved: ../SL_4th_U_results/lightgbm_4th_updated_results/pubmedbert_shap_summary.png

@@ -1,0 +1,19 @@
+Model: clinicalbert
+Accuracy: 0.6235
+AUC-ROC: 0.6200
+AUC-PR: 0.0703
+Best Threshold (F1-optimized): 0.5159
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0     0.9612    0.6290    0.7604    111213
+           1     0.0692    0.5206    0.1221      5889
+
+    accuracy                         0.6235    117102
+   macro avg     0.5152    0.5748    0.4413    117102
+weighted avg     0.9163    0.6235    0.7283    117102
+
+Confusion Matrix:
+[[69952 41261]
+ [ 2823  3066]]
